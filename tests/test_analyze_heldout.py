@@ -78,7 +78,7 @@ def test_frontier_results_are_written_per_movement_game(tmp_path: Path) -> None:
             ),
         )
         writer.writeheader()
-        for game_id in ("tr87-cd924810", "tu93-0768757b"):
+        for game_id in ("game-a", "game-b"):
             for seed in (20270000, 20270001):
                 for agent in ("random", "click-exploration"):
                     writer.writerow({
@@ -96,7 +96,7 @@ def test_frontier_results_are_written_per_movement_game(tmp_path: Path) -> None:
             fieldnames=("game_id", "agent", "seed", "score", "success", "levels_completed"),
         )
         writer.writeheader()
-        for game_id in ("tr87-cd924810", "tu93-0768757b"):
+        for game_id in ("game-a", "game-b"):
             for seed in (20270000, 20270001):
                 writer.writerow({
                     "game_id": game_id,
@@ -113,8 +113,8 @@ def test_frontier_results_are_written_per_movement_game(tmp_path: Path) -> None:
     with paths[3].open(encoding="utf-8", newline="") as stream:
         frontier_games = list(csv.DictReader(stream))
     assert {row["game_id"] for row in frontier_games} == {
-        "tr87-cd924810",
-        "tu93-0768757b",
+        "game-a",
+        "game-b",
     }
     assert all(int(row["episodes"]) == 2 for row in frontier_games)
 
