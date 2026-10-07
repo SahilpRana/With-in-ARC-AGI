@@ -31,8 +31,8 @@ def test_registered_development_games_are_loaded_without_split_changes() -> None
 
     assert len(games) == 13
     assert "ls20-9607627b" in games
-    assert "tr87-cd924810" not in games
-    assert "tu93-0768757b" not in games
+    split_data = json.loads(split_path.read_text(encoding="utf-8"))
+    assert set(split_data["held_out_game_ids"]).isdisjoint(games)
 
 
 def test_explicit_held_out_game_is_rejected_before_runner_start(
