@@ -1,0 +1,1 @@
+"""Shared deterministic and resource-management helpers."""

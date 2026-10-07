@@ -1,0 +1,32 @@
+seed: 0
+episodes: 20
+environment:
+  kind: hidden
+  width: 7
+  height: 7
+  max_steps: 100
+  difficulty:
+    action_remapping: true
+    hidden_goal: true
+    mechanic: key_door
+    partial_observability: false
+    view_radius: 2
+budgets:
+  max_steps: 100
+  max_seconds: 60.0
+  max_compute_units: 10000
+modules:
+  perception: true
+  memory: true
+  hypothesis_induction: true
+  hypothesis_verification: true
+  exploration: true
+  planning: true
+  optional_llm: false
+agent:
+  strategy: hypothesis_gated
+  explorer: information_gain
+  min_action_tests: 2
+  confidence_threshold: 0.7
+logging:
+  path: logs/episodes.jsonl

@@ -1,0 +1,1 @@
+"""Observation encoding for downstream inference and planning."""

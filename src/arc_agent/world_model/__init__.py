@@ -1,0 +1,1 @@
+"""Rule hypotheses and empirical verification utilities."""

@@ -1,0 +1,4 @@
+*.py text=auto eol=lf
+*.md text=auto eol=lf
+*.csv text=auto eol=lf
+*.json text=auto eol=lf
